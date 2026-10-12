@@ -9,6 +9,7 @@ docker compose up -d
 
 ## Dependencies
 
+### Spring Boot (Backend)
 - Spring Web: REST API endpoints.
 
 - Spring Data JPA: database persistence.
