@@ -1,0 +1,37 @@
+package com.example.backend.presentation;
+
+import com.example.backend.application.ProjectService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+@RestController()
+@RequestMapping("/api/v1/projects")
+public class ProjectController {
+
+    private final ProjectService projectService;
+
+    public ProjectController(ProjectService projectService) {
+        this.projectService = projectService;
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public GetProjectResponse create(
+            @Valid
+            @RequestBody
+            CreateProjectRequest request
+    ) {
+
+        var project = projectService.create(request.name());
+
+        return GetProjectResponse.from(project);
+    }
+
+    @GetMapping("/{id}")
+    public GetProjectResponse getById(@PathVariable Long id) {
+        var project = projectService.getById(id);
+
+        return GetProjectResponse.from(project);
+    }
+}
