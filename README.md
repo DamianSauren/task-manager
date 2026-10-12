@@ -6,3 +6,15 @@ Jira-esque project using Angular and Spring Boot.
 ```shell
 docker compose up -d
 ```
+
+## Dependencies
+
+- Spring Web: REST API endpoints.
+
+- Spring Data JPA: database persistence.
+
+- PostgreSQL Drive: connect to PostgreSQL.
+
+- Validation: validate incoming requests.
+
+- Spring Boot DevTools
