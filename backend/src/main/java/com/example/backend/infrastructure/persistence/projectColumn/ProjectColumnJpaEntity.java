@@ -1,15 +1,18 @@
-package com.example.backend.infrastructure.persistence;
+package com.example.backend.infrastructure.persistence.projectColumn;
 
 import jakarta.persistence.*;
 
 import java.time.Instant;
 
 @Entity()
-@Table(name = "notes")
-public class ProjectJpaEntity {
+@Table(name = "project_column")
+public class ProjectColumnJpaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
+    private Long projectId;
 
     @Column(nullable = false, length = 200)
     private String name;
@@ -20,11 +23,11 @@ public class ProjectJpaEntity {
     @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
 
-    protected ProjectJpaEntity() {
+    protected ProjectColumnJpaEntity() {
 
     }
 
-    public ProjectJpaEntity(
+    public ProjectColumnJpaEntity(
             Long id,
             String name,
             Instant createdAt,

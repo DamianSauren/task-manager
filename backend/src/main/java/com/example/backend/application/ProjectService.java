@@ -1,8 +1,8 @@
 package com.example.backend.application;
 
-import com.example.backend.domain.Project;
-import com.example.backend.domain.ProjectNotFoundException;
-import com.example.backend.domain.ProjectRepository;
+import com.example.backend.domain.project.Project;
+import com.example.backend.domain.project.ProjectNotFoundException;
+import com.example.backend.domain.project.ProjectRepository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 

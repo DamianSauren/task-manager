@@ -1,6 +1,6 @@
 package com.example.backend.presentation;
 
-import com.example.backend.domain.Project;
+import com.example.backend.domain.project.Project;
 
 import java.time.Instant;
 

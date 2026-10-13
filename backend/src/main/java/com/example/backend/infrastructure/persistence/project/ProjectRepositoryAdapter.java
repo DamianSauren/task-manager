@@ -1,7 +1,7 @@
-package com.example.backend.infrastructure.persistence;
+package com.example.backend.infrastructure.persistence.project;
 
-import com.example.backend.domain.Project;
-import com.example.backend.domain.ProjectRepository;
+import com.example.backend.domain.project.Project;
+import com.example.backend.domain.project.ProjectRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
