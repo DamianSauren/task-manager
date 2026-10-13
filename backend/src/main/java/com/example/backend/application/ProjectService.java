@@ -43,7 +43,7 @@ public class ProjectService {
         return projectRepository.findAll();
     }
 
-    public void delete(Long id) {
+    public void deleteById(Long id) {
         projectRepository.deleteById(id);
     }
 }

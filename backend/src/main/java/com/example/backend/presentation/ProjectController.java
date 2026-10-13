@@ -31,7 +31,7 @@ public class ProjectController {
     }
 
     @GetMapping
-    public List<GetProjectResponse> getProjects() {
+    public List<GetProjectResponse> getAll() {
         var projects = projectService.getAll();
 
         return projects.stream()
@@ -48,8 +48,8 @@ public class ProjectController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id) {
-        projectService.delete(id);
+    public void deleteById(@PathVariable Long id) {
+        projectService.deleteById(id);
     }
 
 }
