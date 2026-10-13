@@ -5,6 +5,8 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController()
 @RequestMapping("/api/v1/projects")
 public class ProjectController {
@@ -28,10 +30,26 @@ public class ProjectController {
         return GetProjectResponse.from(project);
     }
 
+    @GetMapping
+    public List<GetProjectResponse> getProjects() {
+        var projects = projectService.getAll();
+
+        return projects.stream()
+                .map(GetProjectResponse::from)
+                .toList();
+    }
+
     @GetMapping("/{id}")
     public GetProjectResponse getById(@PathVariable Long id) {
         var project = projectService.getById(id);
 
         return GetProjectResponse.from(project);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
+        projectService.delete(id);
+    }
+
 }

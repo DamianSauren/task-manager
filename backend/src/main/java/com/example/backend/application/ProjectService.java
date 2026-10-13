@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.List;
 
 @Service()
 @Transactional()
@@ -37,4 +38,12 @@ public class ProjectService {
                 .orElseThrow(() -> new ProjectNotFoundException(id));
     }
 
+    @Transactional(readOnly = true)
+    public List<Project> getAll() {
+        return projectRepository.findAll();
+    }
+
+    public void delete(Long id) {
+        projectRepository.deleteById(id);
+    }
 }
