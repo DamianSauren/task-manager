@@ -51,6 +51,14 @@ public class TaskRepositoryAdapter implements TaskRepository {
     }
 
     @Override
+    public List<Task> findAllByProjectId(Long projectId) {
+        return jpaRepository.findAllByProjectIdOrderByColumnIdAscPositionAscIdAsc(projectId)
+                .stream()
+                .map(TaskRepositoryAdapter::toDomain)
+                .toList();
+    }
+
+    @Override
     public void deleteById(Long id) {
         jpaRepository.deleteById(id);
     }

@@ -11,4 +11,6 @@ public interface ProjectRepository {
     List<Project> findAll();
 
     void deleteById(Long id);
+
+    boolean existsById(Long id);
 }

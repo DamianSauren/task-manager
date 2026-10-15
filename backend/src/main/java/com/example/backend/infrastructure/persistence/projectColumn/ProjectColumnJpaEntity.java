@@ -11,11 +11,14 @@ public class ProjectColumnJpaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "project_id", nullable = false)
     private Long projectId;
 
     @Column(nullable = false, length = 200)
     private String name;
+
+    @Column(nullable = false)
+    private int position;
 
     @Column(name = "created_at", nullable = false)
     private Instant createdAt;
@@ -29,12 +32,16 @@ public class ProjectColumnJpaEntity {
 
     public ProjectColumnJpaEntity(
             Long id,
+            Long projectId,
             String name,
+            int position,
             Instant createdAt,
             Instant updatedAt
     ) {
         this.id = id;
+        this.projectId = projectId;
         this.name = name;
+        this.position = position;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -43,8 +50,16 @@ public class ProjectColumnJpaEntity {
         return id;
     }
 
+    public Long getProjectId() {
+        return projectId;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     public Instant getCreatedAt() {

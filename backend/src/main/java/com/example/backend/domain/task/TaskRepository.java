@@ -10,5 +10,7 @@ public interface TaskRepository {
 
     List<Task> findAll();
 
+    List<Task> findAllByProjectId(Long projectId);
+
     void deleteById(Long id);
 }

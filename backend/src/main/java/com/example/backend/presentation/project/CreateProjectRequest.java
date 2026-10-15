@@ -1,4 +1,4 @@
-package com.example.backend.presentation;
+package com.example.backend.presentation.project;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

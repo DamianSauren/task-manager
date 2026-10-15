@@ -51,6 +51,11 @@ public class ProjectRepositoryAdapter implements ProjectRepository {
         jpaRepository.deleteById(id);
     }
 
+    @Override
+    public boolean existsById(Long id) {
+        return jpaRepository.existsById(id);
+    }
+
     private static Project toDomain(ProjectJpaEntity entity) {
         return new Project (
                 entity.getId(),

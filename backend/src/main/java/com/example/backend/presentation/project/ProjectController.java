@@ -1,4 +1,4 @@
-package com.example.backend.presentation;
+package com.example.backend.presentation.project;
 
 import com.example.backend.application.ProjectService;
 import jakarta.validation.Valid;
