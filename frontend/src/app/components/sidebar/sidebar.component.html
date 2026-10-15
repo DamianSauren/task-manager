@@ -1,0 +1,22 @@
+<aside class="sidebar">
+    <a class="sidebar-brand" routerLink="/" aria-label="Taskboard home">
+        <span class="brand-mark" aria-hidden="true">T</span>
+        <span>Taskboard</span>
+    </a>
+
+    <nav>
+        <p class="sidebar-label">Workspace</p>
+        <a class="sidebar-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <span class="nav-glyph nav-glyph-home" aria-hidden="true"></span>
+            Your work
+        </a>
+
+        <p class="sidebar-label projects-label">Projects</p>
+        @for (project of projects; track project.id) {
+        <a class="sidebar-link project-link" [routerLink]="['/projects', project.id]" routerLinkActive="active">
+            <span class="project-mark" aria-hidden="true">{{ project.name.charAt(0) }}</span>
+            {{ project.name }}
+        </a>
+        }
+    </nav>
+</aside>

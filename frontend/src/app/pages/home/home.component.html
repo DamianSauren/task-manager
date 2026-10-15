@@ -1,0 +1,18 @@
+<header class="page-heading">
+    <p class="eyebrow">Workspace</p>
+    <h1>Your work</h1>
+    <p class="page-subtitle">Projects you can access</p>
+</header>
+
+<div class="project-list">
+    @for (project of projects; track project.id) {
+    <a class="project-card" [routerLink]="['/projects', project.id]">
+        <span class="project-card-mark" aria-hidden="true">{{ project.name.charAt(0) }}</span>
+        <span class="project-card-copy">
+            <strong>{{ project.name }}</strong>
+            <span>Open project board</span>
+        </span>
+        <span class="project-card-arrow" aria-hidden="true">→</span>
+    </a>
+    }
+</div>

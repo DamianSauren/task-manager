@@ -1,0 +1,51 @@
+@if (project(); as project) {
+<section class="project-page">
+    <div class="breadcrumbs"><a routerLink="/">Projects</a><span aria-hidden="true">/</span><span>{{ project.name
+            }}</span></div>
+
+    <header class="project-header">
+        <div class="project-avatar" aria-hidden="true">{{ project.name.charAt(0) }}</div>
+        <div>
+            <p class="eyebrow">Project</p>
+            <h1>{{ project.name }}</h1>
+        </div>
+    </header>
+
+    <nav class="project-tabs" aria-label="Project views">
+        <span class="selected" aria-current="page">Board</span>
+        <span>Overview</span>
+    </nav>
+
+    <section class="board" aria-label="Project task board">
+        @for (column of columns; track column.id) {
+        <section class="board-column" [attr.aria-label]="column.name">
+            <header class="column-header">
+                <h2>{{ column.name }}</h2>
+                <span class="task-count">{{ tasksForColumn(column.id).length }}</span>
+                <span class="column-menu" aria-hidden="true">···</span>
+            </header>
+
+            <div class="task-list">
+                @for (task of tasksForColumn(column.id); track task.id) {
+                <article class="task-card">
+                    <h3>{{ task.name }}</h3>
+                    <p>{{ task.description }}</p>
+                    <footer>
+                        <span class="task-key">TASK-{{ task.id }}</span>
+                        <span class="task-avatar" [attr.aria-label]="'Assignee placeholder for task ' + task.id">{{
+                            task.id % 2 === 0 ? 'JD' : 'AM' }}</span>
+                    </footer>
+                </article>
+                }
+            </div>
+        </section>
+        }
+    </section>
+</section>
+} @else {
+<section class="not-found">
+    <p class="eyebrow">Project</p>
+    <h1>Project not found</h1>
+    <p>The requested project does not exist.</p>
+</section>
+}

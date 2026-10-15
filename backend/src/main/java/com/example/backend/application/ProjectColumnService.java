@@ -2,7 +2,6 @@ package com.example.backend.application;
 
 import com.example.backend.domain.project.ProjectRepository;
 import com.example.backend.domain.projectColumn.ProjectColumn;
-import com.example.backend.domain.projectColumn.ProjectColumnNotFoundException;
 import com.example.backend.domain.projectColumn.ProjectColumnRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
